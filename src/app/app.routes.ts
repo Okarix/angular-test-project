@@ -3,6 +3,7 @@ import { LoginComponent } from './features/login/login.component';
 import { SearchComponent } from './features/search/search.component';
 import { ProfileComponent } from './features/profile/profile.component';
 import { LayoutComponent } from './core/layout/layout.component';
+import { canActivateAuth } from './core/guards/access.guard';
 
 export const routes: Routes = [
   {
@@ -12,6 +13,7 @@ export const routes: Routes = [
       { path: '', component: SearchComponent },
       { path: 'profile', component: ProfileComponent },
     ],
+    canActivate: [canActivateAuth],
   },
   { path: 'login', component: LoginComponent },
 ];

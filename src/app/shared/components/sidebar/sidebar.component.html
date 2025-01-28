@@ -1,1 +1,45 @@
-<p>sidebar works!</p>
+<img src="/assets/images/logo_small.svg" alt="Logo small" class="ml-16 mb-20" />
+
+<nav class="mb-20">
+  <ul class="main-menu-list">
+    @for (menuItem of menuItems; track menuItem.id) {
+    <li>
+      <button class="menu-item">
+        <svg [icon]="menuItem.icon" class="svg-icon"></svg>
+        <span>{{ menuItem.label }}</span>
+      </button>
+    </li>
+    }
+  </ul>
+</nav>
+
+<div class="subscribers">
+  <p class="medium-text mb-20">Подписчики</p>
+
+  <div class="mb-20">
+    @for (profile of subscribers$ | async; track profile.id) {
+    <app-subscriber-card [profile]="profile"></app-subscriber-card>
+    }
+  </div>
+</div>
+
+<div class="mb-20 to-subscribers">
+  <a [routerLink]="['/subscribers']" class="to-subscribers-link medium-text">
+    Все подписчики
+  </a>
+  <svg icon="arrow" class="to-subscribers-icon"></svg>
+</div>
+
+<footer class="sidebar__footer">
+  @if (me(); as me) { @if (me.avatarUrl) {
+  <img [src]="me.avatarUrl | imgUrl" [alt]="me.username" class="footer-img" />
+  } @else {
+  <img src="/assets/icons/avatar.svg" [alt]="me.username" class="footer-img" />
+  }
+  <p class="medium-text username-text">{{ me.username }}</p>
+
+  <a [routerLink]="['settings']" class="settings-btn">
+    <svg icon="settings" class="settings-btn-icon"></svg>
+  </a>
+  }
+</footer>

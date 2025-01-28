@@ -6,6 +6,7 @@
   --light-color: #ffffff;
   --primary-color: #ae7aff;
   --gray-color: #5f646d;
+  --dark-hover-color: #161616;
 }
 
 *,
@@ -21,8 +22,7 @@ body {
   background-color: var(--dark-color);
   color: var(--light-color);
   background-image: url(/assets/images/background.jpg);
-  background-size: cover;
-  background-repeat: no-repeat;
+  height: 100dvh;
 }
 
 .skill-tag {
@@ -80,6 +80,13 @@ body {
   font-size: 14px;
   line-height: 20px;
   font-weight: 400;
+}
+
+.medium-text {
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 16px;
+  font-family: "JetBrains Mono", sans-serif;
 }
 
 .tt-control-label {
